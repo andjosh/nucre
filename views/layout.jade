@@ -1,0 +1,13 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    if info
+      #info
+        p.pull-center.info #{info}
+    if error
+      #error
+        p.pull-center.error #{error}
+    block content

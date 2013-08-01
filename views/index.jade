@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  form(accept-charset="UTF-8", action="/thanks", method="post")
+    input(type="email",name="email",value="#{email ? email : ''}", required, placeholder="Your email")
+    input(type="text", name="message", value="#{message ? message : ''}", placeholder="Optional message")
+    label Amount:
+      input(type="number", name="amount", value="#{amount ? amount : ''}", min=".50", max="9999", step="0.01", size="4", required)
+    button.pay-with-card(type="submit") Pay with card
+
+  script(src='/javascripts/jquery-1.10.2.min.js')
+  script(src='https://checkout.stripe.com/v2/checkout.js')
+  script
+    $(function () {
+      $('form').submit(function () {
+        if($('input[name="stripeToken"]').length < 1) {
+          var token = function(res){
+            var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+            $('button.pay-with-card').attr('disabled', 'disabled');
+            $('form').append($input).submit();
+          };
+
+          StripeCheckout.open({
+            key:         '#{publicKey}',
+            amount:      Math.round(100 * $('input[name="amount"]').val()),
+            name:        '#{title}',
+            panelLabel:  'Pay',
+            token:       token
+          });
+
+          return false;
+        }
+      });
+    });
