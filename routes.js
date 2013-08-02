@@ -5,7 +5,7 @@ var api_key = process.env.STRIPE_SECRET_KEY,
 module.exports = function (app) {
 
     app.get('/', function(req, res) {
-      res.render('index', { title: process.env.PAYEE_NAME+' accespts credit cards!', 
+      res.render('index', { title: process.env.PAYEE_NAME+' accepts credit cards!', 
                             publicKey: api_public,
                             amount: req.body.amount,
                             email: req.body.email,
