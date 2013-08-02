@@ -4,10 +4,14 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    if info
-      #info
-        p.pull-center.info #{info}
-    if error
-      #error
-        p.pull-center.error #{error}
-    block content
+    .pure-g-r
+      .pure-u-1
+        if info
+          #info.text-center
+            p.pull-center.info #{info}
+        if error
+          #error.text-center
+            p.pull-center.error #{error}
+      .pure-u-1-4
+      .pure-u-1-2.main
+        block content

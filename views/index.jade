@@ -2,12 +2,19 @@ extends layout
 
 block content
   h1= title
-  form(accept-charset="UTF-8", action="/thanks", method="post")
-    input(type="email",name="email",value="#{email ? email : ''}", required, placeholder="Your email")
-    input(type="text", name="message", value="#{message ? message : ''}", placeholder="Optional message")
-    label Amount:
-      input(type="number", name="amount", value="#{amount ? amount : ''}", min=".50", max="9999", step="0.01", size="4", required)
-    button.pay-with-card(type="submit") Pay with card
+  form(accept-charset="UTF-8", action="/thanks", method="post").pure-form.pure-form-aligned
+    fieldset
+      .pure-control-group
+        label $
+        input(type="number", name="amount", value="#{amount ? amount : ''}", min=".50", max="9999", step="0.01", size="4", required)
+      .pure-control-group
+        label Your email:
+        input(type="email",name="email",value="#{email ? email : ''}", required, placeholder="Your email")
+      .pure-control-group
+        label Optional message:
+        input(type="text", name="message", value="#{message ? message : ''}", placeholder="Optional message")
+      .pure-controls
+        button.pay-with-card.pure-button(type="submit") Pay with card
 
   script(src='/javascripts/jquery-1.10.2.min.js')
   script(src='https://checkout.stripe.com/v2/checkout.js')

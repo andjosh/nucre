@@ -1,4 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700|Merriweather');
+@import url('pure-min.css');
 body{
   font-family: 'Merriweather Sans';
   font-weight: 300;
@@ -6,7 +7,23 @@ body{
   background-color: #fff;
   font-size: 14px;
 }
-
 a {
   color: #00B7FF;
+}
+.text-center {
+  text-align: center;
+}
+.pure-button:hover{
+  background: #ccc;
+}
+.main {
+  padding: 1em;
+}
+.error {
+  line-height: 4em;
+  background-color: #edb7b7;
+}
+.info {
+  line-height: 4em;
+  background-color: #c3cbf0;
 }

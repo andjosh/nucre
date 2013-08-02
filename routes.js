@@ -5,7 +5,7 @@ var api_key = process.env.STRIPE_SECRET_KEY,
 module.exports = function (app) {
 
     app.get('/', function(req, res) {
-      res.render('index', { title: 'My Pay-site!', 
+      res.render('index', { title: 'Nucre Pay-site!', 
                             publicKey: api_public,
                             amount: req.body.amount,
                             email: req.body.email,
@@ -30,6 +30,7 @@ module.exports = function (app) {
           }
           if (!err) {
             console.log("charge id", charge.id);
+            req.flash('info', 'Success!');
             res.render('thanks', {  title: 'Thank you!', 
                                     charge: charge,
                                     paidAmount: req.body.amount, 
