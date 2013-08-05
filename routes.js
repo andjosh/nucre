@@ -7,9 +7,9 @@ module.exports = function (app) {
     app.get('/', function(req, res) {
       res.render('index', { title: process.env.PAYEE_NAME+' accepts credit cards!', 
                             publicKey: api_public,
-                            amount: req.body.amount,
-                            email: req.body.email,
-                            message: req.body.message,
+                            amount: req.query.amount,
+                            email: req.query.email,
+                            message: req.query.message,
                             info: req.flash('info'), 
                             error: req.flash('error') });
     });
