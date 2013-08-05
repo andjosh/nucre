@@ -10,7 +10,7 @@ This thing doesn't ask the customer much, just for an email
 and the payment amount. A message is optional. All the credit card info stays on
 [Stripe](https://stripe.com) so you have nothing to worry about.
 
-You can see it in action [here](http://nucre.herokuapp.com).
+You can see it in action [here](http://nucre.herokuapp.com). Note that the demo site uses test STRIPE variables so you can input credit cards to test and view confirmation/error pages without fear of being charged. Go wild.
 
 ## Installation
 
@@ -58,14 +58,14 @@ customized link to your lucre installation with a specified email and/or
 amount you intend to collect.
 
 ```
-http://your-lucre-site.com/?email=generous-client@example.com
+http://your-nucre-site.com/?email=generous-client@example.com
 ```
 
 The above will fill-in the email address of the person from whom you are
 collecting monies.
 
 ```
-http://your-lucre-site.com/?email=client@example.com&amount=47.39
+http://your-nucre-site.com/?email=client@example.com&amount=47.39
 ```
 
 The above will fill-in your client's email address and amount to be
